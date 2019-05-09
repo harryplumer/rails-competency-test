@@ -1,0 +1,13 @@
+.ui.card style="width: 100%;"
+  .content 
+    .header
+      = link_to article.title, article_path(article)
+    .meta 
+      = "Published by #{article.author} at #{article.written_at}"
+      br
+      = article.category.name
+    .description.truncate 
+      = article.content
+    - if article.show_buttons(current_user) 
+        = link_to "Edit", edit_article_path(article), class: "tiny ui left floated yellow basic button"
+        = link_to "Destroy", article, method: :delete, class: "tiny ui left floated red basic button", data: {confirm: "Are you sure?"} 

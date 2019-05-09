@@ -1,7 +1,8 @@
-h1 Articles 
--@articles.each do |article|
-  h3 
-    = article.title 
-  h4 
-    = "Written by #{article.author} at #{article.written_at}"
+.container
+  h1 Articles 
+  -if @show_create
+    = link_to "New Article", new_article_path, class: "tiny ui left floated blue button"
+.container
+  -@articles.each do |article|
+    = render partial: "card", locals: {article: article} 
   

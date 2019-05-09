@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
 
   def index 
     @articles = Article.all.order(created_at: :desc)
+    @show_create = current_user&.rights&.include?("Create Article")
   end 
 
   def show
@@ -16,8 +17,8 @@ class ArticlesController < ApplicationController
   end 
 
   def create 
-    authorize @article
     @article = current_user.articles.new(article_params)
+    authorize @article
     if @article.save
       flash[:success] = "Article has been created!"
       redirect_to articles_path
@@ -45,6 +46,7 @@ class ArticlesController < ApplicationController
   def destroy
     authorize @article
     @article.destroy
+    flash[:success] = "Article has been destroyed!"
     redirect_to articles_path
   end 
 

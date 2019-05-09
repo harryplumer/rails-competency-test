@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   has_many :user_roles
   has_many :roles, through: :user_roles
+  has_many :articles
 
   def selected_role 
     self.user_roles.find_by(is_selected: true).role

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   include Pundit
-  
+
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_action :nav_bar_links
@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def nav_bar_links
     @links = [{title: "Home", path: root_path}, {title: "Articles", path: articles_path}]
-    if false #admin check
+    if current_user&.selected_role&.name == "admin"
       @links << {title: "Admin", path: "#"} 
       @num_links = "four"
     else  

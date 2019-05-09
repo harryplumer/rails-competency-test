@@ -1,18 +1,28 @@
 #define rights here
 rights = [
-  {name: "View Article", description: "Can view articles"}
+  {name: "View Article", description: "Can view articles"},
+  {name: "Edit Article", description: "Can edit articles"},
+  {name: "Destroy Article", description: "Can destroy articles"},
+  {name: "Create Article", description: "Can create articles"},
+  {name: "Create User", description: "Can create users"},
+  {name: "Edit User", description: "Can edit users"}
 ]
 
 rights.each{|right| Right.create(right)}
-
-
-
 
 #define user roles 
 roles = ["admin", "editor", "user"]
 roles.each do |r|
   role = Role.find_or_create_by(name: r)
-  #add correct rights here 
+  if r == "user"
+    right_names = ["View Article"]
+  elsif r == "editor"
+    right_names = ["View Article", "Edit Article", "Destroy Article", "Create Article"]
+  elsif r == "admin"
+    right_names = ["Create User", "Edit User"]
+  end 
+
+  Right.where(name: right_names).each{|right| RoleRight.create(role: role, right: right)}
 
   #create a dummy user for this role
   user = User.find_or_initialize_by(email: "#{r}@test.com")
@@ -36,7 +46,7 @@ categories.each do |c|
     Article.create(
       user: author,
       title: Faker::Lorem.words(4).join(" "),
-      content: Faker::Lorem.paragraphs(10).join("<br />"),
+      content: Faker::Lorem.paragraphs(10).join(""),
       category: category,
       created_at: Faker::Date.between(1.year.ago, Date.today)
     )
