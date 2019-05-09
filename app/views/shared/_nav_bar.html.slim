@@ -1,9 +1,13 @@
-.ui.three.item.menu
-  / a.item href="#{home_index_url}" class="#{nav_bar_active('home')}" Home
-  / a.item href="#{new_email_url}" class="#{nav_bar_active('emails')}" Articles
-  / a.item href="#{new_import_file_url}" class="#{nav_bar_active('import_files')}" New Import
-  / a.item href="#{setup_queue_url}" class="#{nav_bar_active('people_emails')}" Queue Messages
-  a.item href="#" class="" Home 
-  a.item href="#" class="" Articles 
-  a.item href="#" class="" Admin 
-  a.item href="#" class="" Login/Register
+div class="ui #{@num_links} item menu"
+  - @links.each do |link|
+    a.item href="#{link[:path]}"
+      = link[:title]
+
+  / / a.item href="#{home_index_url}" class="#{nav_bar_active('home')}" Home
+  / / a.item href="#{new_email_url}" class="#{nav_bar_active('emails')}" Articles
+  / / a.item href="#{new_import_file_url}" class="#{nav_bar_active('import_files')}" New Import
+  / / a.item href="#{setup_queue_url}" class="#{nav_bar_active('people_emails')}" Queue Messages
+  / a.item href="#" class="" Home 
+  / a.item href="#" class="" Articles 
+  / a.item href="#" class="" Admin 
+  / a.item href="#" class="" Login/Register

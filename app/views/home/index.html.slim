@@ -1,2 +1,8 @@
-div 
-  h1 This is the home page 
+h1 Welcome To Borboleta News 
+-@categories.each do |category|
+  h2
+    =category.name
+  -category.home_articles.each do |article|
+    h3
+     = article.title
+

@@ -29,7 +29,8 @@ categories.each do |c|
       user: author,
       title: Faker::Lorem.words(4).join(" "),
       content: Faker::Lorem.paragraphs(10).join("<br />"),
-      category: category
+      category: category,
+      created_at: Faker::Date.between(1.year.ago, Date.today)
     )
   end 
 end

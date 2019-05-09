@@ -1,7 +1,24 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
+  before_action :authenticate_user!
+  before_action :nav_bar_links
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def nav_bar_links
+    @links = [{title: "Home", path: root_path}, {title: "Articles", path: articles_path}]
+    if false #admin check
+      @links << {title: "Admin", path: "#"} 
+      @num_links = "four"
+    else  
+      @num_links = "three"
+    end 
+    if current_user.present? 
+      @links << {title: "Logout", path: destroy_user_session_path}
+    else 
+      @links << {title: "Login", path: new_user_session_path} 
+    end 
+  end 
+
 
   protected
     def configure_permitted_parameters
