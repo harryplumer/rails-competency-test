@@ -1,0 +1,15 @@
+create_article_editor:
+  role_id: <%= ActiveRecord::FixtureSet.identify(:editor_role) %>
+  right_id: <%= ActiveRecord::FixtureSet.identify(:create_article_right) %>
+view_article_editor:
+  role_id: <%= ActiveRecord::FixtureSet.identify(:editor_role) %>
+  right_id: <%= ActiveRecord::FixtureSet.identify(:view_article_right) %>
+edit_article_editor:
+  role_id: <%= ActiveRecord::FixtureSet.identify(:editor_role) %>
+  right_id: <%= ActiveRecord::FixtureSet.identify(:edit_article_right) %>
+destroy_article_editor:
+  role_id: <%= ActiveRecord::FixtureSet.identify(:editor_role) %>
+  right_id: <%= ActiveRecord::FixtureSet.identify(:destroy_article_right) %>
+view_article_user:
+  role_id: <%= ActiveRecord::FixtureSet.identify(:user_role) %>
+  right_id: <%= ActiveRecord::FixtureSet.identify(:view_article_right) %>

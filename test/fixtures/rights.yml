@@ -1,0 +1,18 @@
+view_article_right:
+  name: "View Article"
+  description: "Can view articles"
+edit_article_right:
+  name: "Edit Article"
+  description: "Can edit articles"
+destroy_article_right:
+  name: "Destroy Article"
+  description: "Can destroy articles"
+create_article_right: 
+  name: "Create Article"
+  description: "Can create articles"
+create_user_right:
+  name: "Create User"
+  description: "Can create users"
+edit_user_right:
+  name: "Edit User"
+  description: "Can edit users"

@@ -1,9 +1,16 @@
 require "test_helper"
 
 describe User do
-  let(:user) { User.new }
+  let(:editor_user) { create(:user, :editor_user) }
+  let(:user_user) { create(:user, :user_user) }
+  let(:admin_user) { create(:user, :admin_user) }
 
-  it "must be valid" do
-    value(user).must_be :valid?
-  end
+  it "should give users the correct rights when calling rights method" do 
+    value(editor_user.rights).must_include "View Article"
+    value(editor_user.rights).must_include "Create Article"
+    value(editor_user.rights).must_include "Edit Article"
+    value(editor_user.rights).must_include "Destroy Article"
+    value(user_user.rights).must_include "View Article"
+  end 
+  
 end

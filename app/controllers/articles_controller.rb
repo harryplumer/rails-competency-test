@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
     authorize @article
     if @article.save
       flash[:success] = "Article has been created!"
-      redirect_to articles_path
+      redirect_to article_path(@article)
     else
       flash[:alert] = "There was an error publishing this article. Please try again."
       render partial: "form"

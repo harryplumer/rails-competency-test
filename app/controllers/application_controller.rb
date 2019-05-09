@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   before_action :nav_bar_links
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   def nav_bar_links
     @links = [{title: "Home", path: root_path}, {title: "Articles", path: articles_path}]
     if current_user&.selected_role&.name == "admin"
@@ -20,7 +22,12 @@ class ApplicationController < ActionController::Base
       @links << {title: "Login", path: new_user_session_path} 
     end 
   end 
-
+  
+  private
+    def user_not_authorized
+      flash[:alert] = "You are not authorized to perform this action."
+      redirect_to(request.referrer || root_path)
+    end
 
   protected
     def configure_permitted_parameters
