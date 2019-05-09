@@ -21,6 +21,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise', '~> 4.6.2'
 gem 'pundit', '~> 2.0.1'
 gem 'slim', '~> 3.0.8'
+gem 'semantic-ui-sass', '~> 2.2.11'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 # Use CoffeeScript for .coffee assets and views
 # gem 'coffee-rails', '~> 4.2'
