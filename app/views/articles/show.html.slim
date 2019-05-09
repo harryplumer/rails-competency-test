@@ -1,0 +1,8 @@
+h1
+  = @article.title
+h4 
+  = "#{@article.user.first_name} #{@article.user.last_name}"
+br 
+br 
+p 
+  = @article.content.html_safe

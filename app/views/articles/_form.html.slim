@@ -1,0 +1,12 @@
+.ui-container 
+  h1.ui-header 
+    = @article.id.present? ? "Edit Article" : "New Article"
+  = form_for @article do |f|
+    .ui.form 
+      = f.label :title 
+      = f.text_field :title, required: true 
+      = f.label :category 
+      = f.collection_select :category_id, Category.order(:name), :id , :name      
+      = f.label :content 
+      = f.text_area :content
+      = f.submit 

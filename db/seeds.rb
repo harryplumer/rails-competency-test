@@ -1,4 +1,12 @@
 #define rights here
+rights = [
+  {name: "View Article", description: "Can view articles"}
+]
+
+rights.each{|right| Right.create(right)}
+
+
+
 
 #define user roles 
 roles = ["admin", "editor", "user"]

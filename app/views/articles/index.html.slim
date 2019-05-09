@@ -1,0 +1,7 @@
+h1 Articles 
+-@articles.each do |article|
+  h3 
+    = article.title 
+  h4 
+    = "Written by #{article.author} at #{article.written_at}"
+  
