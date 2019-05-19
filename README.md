@@ -17,6 +17,12 @@ The password for each is "Testtest123!"
 
 * Testing done through MiniTest (my first time using, have always used RSpec in the past). Can be run with rails test.
 
+#Todos
+
+* Better error handling and messages on forms
+* Styling
+* Ability to add images to articles
+
 
 <img src="https://cdn.shopify.com/s/files/1/0163/4078/t/74/assets/logo.png?3926" width="161" height="60"/>
 
