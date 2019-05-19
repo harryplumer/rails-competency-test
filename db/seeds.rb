@@ -37,6 +37,18 @@ roles.each do |r|
   UserRole.create(role: role, user: user)
 end
 
+#create a master user with all 3 roles
+user = User.find_or_initialize_by(email: "master@test.com")
+user.attributes = {
+  password: "Testtest123!",
+  password_confirmation: "Testtest123!",
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name
+}
+user.save 
+Role.all.each{|role| UserRole.create(role: role, user: user, is_selected: false) }
+user.user_roles.first.update(is_selected: true)
+  
 #define categories
 author = User.find_by(email: "editor@test.com")
 categories = ["Lash Training", "Beauty Tips", "Product News"]

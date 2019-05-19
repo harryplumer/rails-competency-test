@@ -2,11 +2,11 @@
 
 To boot project, clone repository and run rails db:create db:migrate db:seed, then boot rails server.
 
-The seeds will give three default users:
+The seeds will give four default users:
 * admin@test.com (admin role)
 * editor@test.com (editor role)
 * user@test.com (user role)
-
+* master@test.com (master user with all 3 roles)
 The password for each is "Testtest123!"
 
 #Notes
