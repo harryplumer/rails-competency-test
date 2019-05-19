@@ -1,4 +1,13 @@
 div class="ui #{@num_links} item menu"
   - @links.each do |link|
-    a.item href="#{link[:path]}"
-      = link[:title]
+    - if link[:sublinks].present? 
+      div.ui.simple.dropdown.item
+        =link[:title]
+        .menu 
+          - link[:sublinks].each do |sublink|
+            a.item href="#{sublink[:path]}"
+              = sublink[:title]
+    - else 
+      a.item href="#{link[:path]}" class="#{params['controller'] == link[:controller] ? 'active' : ''}"
+        = link[:title]
+      

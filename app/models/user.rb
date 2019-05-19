@@ -12,8 +12,8 @@ class User < ApplicationRecord
     self.user_roles.find_by(is_selected: true).role
   end 
 
-  def rights 
-    Right.where(id: RoleRight.where(role: self.selected_role).pluck(:right_id)).pluck(:name)
+  def rights
+    Right.joins("INNER JOIN role_rights ON role_rights.right_id = rights.id").where("role_rights.role_id = ?", self.selected_role).pluck(:name)
   end 
  
 end

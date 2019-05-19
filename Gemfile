@@ -23,6 +23,7 @@ gem 'pundit', '~> 2.0.1'
 gem 'slim', '~> 3.0.8'
 gem 'semantic-ui-sass', '~> 2.2.11'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'numbers_in_words'
 
 # Use CoffeeScript for .coffee assets and views
 # gem 'coffee-rails', '~> 4.2'

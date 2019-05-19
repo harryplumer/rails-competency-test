@@ -13,3 +13,12 @@ destroy_article_editor:
 view_article_user:
   role_id: <%= ActiveRecord::FixtureSet.identify(:user_role) %>
   right_id: <%= ActiveRecord::FixtureSet.identify(:view_article_right) %>
+view_users_admin: 
+  role_id: <%= ActiveRecord::FixtureSet.identify(:admin_role) %>
+  right_id: <%= ActiveRecord::FixtureSet.identify(:view_users_right) %>
+create_users_admin: 
+  role_id: <%= ActiveRecord::FixtureSet.identify(:admin_role) %>
+  right_id: <%= ActiveRecord::FixtureSet.identify(:create_user_right) %>
+edit_users_admin: 
+  role_id: <%= ActiveRecord::FixtureSet.identify(:admin_role) %>
+  right_id: <%= ActiveRecord::FixtureSet.identify(:edit_user_right) %>

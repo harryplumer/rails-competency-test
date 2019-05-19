@@ -1,3 +1,23 @@
+# Instructions
+
+To boot project, clone repository and run rails db:create db:migrate db:seed, then boot rails server.
+
+The seeds will give three default users:
+* admin@test.com (admin role)
+* editor@test.com (editor role)
+* user@test.com (user role)
+
+The password for each is "Testtest123!"
+
+#Notes
+
+* I used the pundit gem for permissioning with a rights-based architecture. I have been burned during scaling before by using a role-based architecture, so I swore never to back myself into that corner again. Ipso facto, roles have rights instead of simply using the role to decide permissions.
+
+* I also added the ability for a user to have multiple roles and switch between them in the UI. This allows for quicker debugging and troubleshooting.
+
+* Testing done through MiniTest (my first time using, have always used RSpec in the past). Can be run with rails test.
+
+
 <img src="https://cdn.shopify.com/s/files/1/0163/4078/t/74/assets/logo.png?3926" width="161" height="60"/>
 
 # Rails Competency Test - Simple News Application

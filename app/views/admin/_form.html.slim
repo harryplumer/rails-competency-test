@@ -1,0 +1,24 @@
+.ui-container 
+  h1.ui-header 
+    = @user.id.present? ? "Edit User" : "New User"
+  = form_for @user, url: {controller: "admin", action: @action, method: "post"} do |f|
+    .ui.form 
+      = f.label :email 
+      = f.email_field :email, required: true 
+      = f.label :first_name
+      = f.text_field :first_name
+      = f.label :last_name 
+      = f.text_field :last_name
+      - if @user.id.blank? 
+        = f.label :password
+        = f.text_field :password 
+        = f.label :password_confirmation
+        = f.text_field :password_confirmation
+      / CHECKBOXES FOR EACH ROLE
+      b Roles
+      br
+      - @roles.each do |role|
+        = f.label "#{role.name.titleize}"
+        = check_box_tag "user_role_#{role.id}", true, @user_role_ids&.include?(role.id)
+        br
+      = f.submit 

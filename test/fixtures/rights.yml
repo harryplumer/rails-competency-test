@@ -16,3 +16,6 @@ create_user_right:
 edit_user_right:
   name: "Edit User"
   description: "Can edit users"
+view_users_right:
+  name: "View Users"
+  description: "Can view users"

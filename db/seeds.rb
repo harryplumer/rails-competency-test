@@ -4,6 +4,7 @@ rights = [
   {name: "Edit Article", description: "Can edit articles"},
   {name: "Destroy Article", description: "Can destroy articles"},
   {name: "Create Article", description: "Can create articles"},
+  {name: "View Users", description: "Can view the list of users"},
   {name: "Create User", description: "Can create users"},
   {name: "Edit User", description: "Can edit users"}
 ]
@@ -19,7 +20,7 @@ roles.each do |r|
   elsif r == "editor"
     right_names = ["View Article", "Edit Article", "Destroy Article", "Create Article"]
   elsif r == "admin"
-    right_names = ["Create User", "Edit User"]
+    right_names = ["View Users", "Create User", "Edit User"]
   end 
 
   Right.where(name: right_names).each{|right| RoleRight.create(role: role, right: right)}
